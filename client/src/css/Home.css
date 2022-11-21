@@ -5,7 +5,7 @@ main {
   background-repeat: no-repeat;
   background-size: 60vw 100vh;
   background-position: top right;
-  height: 900px;
+  /* height: 900px; */
   align-items: center;
 }
 

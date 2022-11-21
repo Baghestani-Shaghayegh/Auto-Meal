@@ -4,12 +4,14 @@ import "../css/Home.css";
 import Card from "../components/Card";
 import Axios from "axios";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { ServeIP } from "../IP";
+import { ServeIP, apiKey3 } from "../IP";
 export default function Home() {
   const [randomRecipes, setRandomRecipes] = useState([]);
 
   useEffect(() => {
-    Axios.get(`${ServeIP}/RecipeDB/random_recipe`).then((response) => {
+    Axios.get(
+      `https://api.spoonacular.com/recipes/random?${apiKey3}&number=10`
+    ).then((response) => {
       setRandomRecipes(response.data.recipes);
     });
   }, []);

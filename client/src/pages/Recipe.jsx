@@ -1,34 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import RecipeDetails from "../components/RecipeDetailes";
 import Ingredients from "../components/Ingredients";
-import styled from "styled-components";
-import { useSearchParams } from "react-router-dom";
-import axios from "axios";
-import { ServeIP } from "../IP";
+import { useParams } from "react-router-dom";
 
 export default function Recipe() {
-  const [searchParams] = useSearchParams();
-  const [recipeInfo, setRecipeInfo] = useState({});
-
-  // Axios.get(`${ServeIP}/RecipeDB/random_recipe`).then((response) => {
-  useEffect(() => {
-    axios
-      .get(
-        `${ServeIP}/RecipeDB/detail_recipe?recipeId=${searchParams.recipeId}`
-      )
-      .then((response) => {
-        console.log(response.data);
-      });
-  }, []);
-
-  console.log(searchParams.recipeId);
+  const { recipeId } = useParams();
 
   return (
-    <Container>
-      <RecipeDetails />
-      <Ingredients />
-    </Container>
+    <>
+      <RecipeDetails recipeId={recipeId} />
+      <Ingredients recipeId={recipeId} />
+    </>
   );
 }
 
-const Container = styled.div``;
+// const [recipeInfo, setRecipeInfo] = useState([]);
+// console.log("rendered");
+
+// useEffect(() => {
+//   axios
+//     .get(
+//       `https://api.spoonacular.com/recipes/${715446}/information?${apiKey}&includeNutrition=true`
+//     )
+//     .then((response) => {
+//       console.log(response.data);
+//       setRecipeInfo(response.data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }, []);
+
+// return ()
+// <Container>
+//   {recipeInfo != undefined &&
+//   recipeInfo.nutrition != undefined &&
+//   recipeInfo.nutrition.nutrients.length != 0 ? (
+//     <div>
+//       <RecipeDetails {...recipeInfo} />
+//       <Ingredients {...recipeInfo} />
+//     </div>
+//   ) : (
+//     console.log("console")
+//   )}
+
+//   {/* {recipeInfo && (
+//     <> */}
+//   {/* {console.log("console:" + recipeInfo.title)}
+//   <RecipeDetails {...recipeInfo} />
+//   <Ingredients {...recipeInfo} /> */}
+//   {/* </>
+//   )} */}
+// </Container>
