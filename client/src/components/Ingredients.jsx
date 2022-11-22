@@ -2,26 +2,30 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import IngredientInfo from "./IngredientInfo";
-import getRecipeInfoById from "../Fetchers";
 import AddToPlan from "./AddToPlan";
 import { apiKey3 } from "../IP";
 import axios from "axios";
+import getRecipeInfoById from "../Fetchers";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 
 export default function Ingredients({ recipeId }) {
+  // const { data, isLoading } = useQuery("recipeInfo", () =>
+  //   axios(
+  //     `https://api.spoonacular.com/recipes/${recipeId}/information?${apiKey3}&includeNutrition=true`
+  //   )
+  // );
+
   const { data, isLoading } = useQuery("recipeInfo", () =>
-    axios(
-      `https://api.spoonacular.com/recipes/${recipeId}/information?${apiKey3}&includeNutrition=true`
-    )
+    getRecipeInfoById(recipeId)
   );
 
   const [isImperial, setIsImperial] = useState(true);
   const [isMade, setIsMade] = useState(false);
   const [isAllAdded, setIsAllAdded] = useState(false);
-  // if (data) console.log(data);
+
   return (
     <Container>
       {data ? (
@@ -45,10 +49,10 @@ export default function Ingredients({ recipeId }) {
                   METRIC
                 </span>
               </div>
-              <span>{data.data.servings} SERVINGS</span>
+              <span>{data.Recipe_Information.servings} SERVINGS</span>
             </div>
           </div>
-          {data.data.extendedIngredients.map((item) => {
+          {data.Recipe_Information.extendedIngredients.map((item) => {
             return (
               <IngredientInfo
                 isImperial={isImperial}

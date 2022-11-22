@@ -5,7 +5,6 @@ import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
 import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 export default function Card(props) {
   const [isBooked, setIsBooked] = useState(false);
-  console.log(props);
 
   return (
     <div className="card">

@@ -16,21 +16,15 @@ export default function RecipeDetails({ recipeId }) {
   //   )
   // );
 
-  const { data, isLoading } = useQuery(
-    "recipeInfo",
+  const { data, isLoading } = useQuery("recipeInfo", () =>
     getRecipeInfoById(recipeId)
   );
 
   const [isBooked, setIsBooked] = useState(false);
 
-  // const countIngredients = data.data.extendedIngredients.length;
-  // const nutrients = data.data.nutrition.nutrients;
-  // const amount = nutrients[0].amount;
-  // const image = data.data.image;
-  // const title = data.data.title;
-  // const readyInMinutes = data.data.readyInMinutes;
-
-  if (data) console.log(data);
+  if (data) {
+    console.log(data);
+  }
   return (
     <Container>
       {data ? (
@@ -38,24 +32,24 @@ export default function RecipeDetails({ recipeId }) {
           <div className="recipe-summary-wrapper">
             <div className="recipe--detailes">
               <div className="recipe--title bold">
-                <h1>{data.data.title}</h1>
+                <h1>{data.Recipe_Information.title}</h1>
               </div>
               <div className="summary-item-wrapper">
                 <div className="recipe-summary-item h2-text">
                   <span className=" font-light h2-text">
-                    {data.data.extendedIngredients.length}
+                    {data.Recipe_Information.extendedIngredients.length}
                   </span>
                   <span className=" font-normal p-text">Ingredients</span>
                 </div>
                 <div className="recipe-summary-item unit h2-text">
                   <span className=" font-light h2-text">
-                    {data.data.readyInMinutes}
+                    {data.Recipe_Information.readyInMinutes}
                   </span>
                   <span className=" font-normal p-text">Minutes</span>
                 </div>
                 <div className="recipe-summary-item h2-text">
                   <span className=" font-light h2-text">
-                    {data.data.nutrition.nutrients[0].amount}
+                    {data.Recipe_Information.nutrition.nutrients[0].amount}
                   </span>
                   <span className=" font-normal p-text">Calories</span>
                 </div>
@@ -77,7 +71,7 @@ export default function RecipeDetails({ recipeId }) {
 
             <div className="recipe-details-image">
               <img
-                src={data.data.image}
+                src={data.Recipe_Information.image}
                 alt="Recipe Image"
                 className="recipe--image"
               />
