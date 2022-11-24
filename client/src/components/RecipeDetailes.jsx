@@ -10,12 +10,6 @@ import axios from "axios";
 import getRecipeInfoById from "../Fetchers";
 
 export default function RecipeDetails({ recipeId }) {
-  // const { data, isLoading, isFetched } = useQuery("recipeInfo", () =>
-  //   axios(
-  //     `https://api.spoonacular.com/recipes/${recipeId}/information?${apiKey3}&includeNutrition=true`
-  //   )
-  // );
-
   const { data, isLoading } = useQuery("recipeInfo", () =>
     getRecipeInfoById(recipeId)
   );

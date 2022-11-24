@@ -1,4 +1,4 @@
-main {
+/* main {
   margin-top: 0;
   padding: 0;
   background-image: url(src/assets/HeaderImage.png);
@@ -6,7 +6,28 @@ main {
   background-size: 60vw 100vh;
   background-position: top right;
   /* height: 900px; */
-  align-items: center;
+/* align-items: center;
+} */
+
+/* .banner--img {
+  background-image: url(src/assets/banner_img.png);
+  position: absolute;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.home--banner {
+  background-image: url(src/assets/default_bkg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .home--stats {

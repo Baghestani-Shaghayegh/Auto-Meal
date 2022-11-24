@@ -7,6 +7,7 @@ import MealPlanner from "./pages/MealPlanner";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Recipe from "./pages/Recipe";
+import SearchRecipes from "./pages/SearchRecipes";
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   window.onscroll = () => {
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/shop" element={<ShopIngredients />} />
         <Route exact path="/community" element={<Community />} />
         <Route exact path="/recipe/:recipeId" element={<Recipe />} />
+        <Route exact path="/searchRecipes" element={<SearchRecipes />} />
         <Route exact path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>

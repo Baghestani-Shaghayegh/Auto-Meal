@@ -3,8 +3,6 @@ import { useQuery } from "react-query";
 import styled from "styled-components";
 import IngredientInfo from "./IngredientInfo";
 import AddToPlan from "./AddToPlan";
-import { apiKey3 } from "../IP";
-import axios from "axios";
 import getRecipeInfoById from "../Fetchers";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
@@ -12,12 +10,6 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 
 export default function Ingredients({ recipeId }) {
-  // const { data, isLoading } = useQuery("recipeInfo", () =>
-  //   axios(
-  //     `https://api.spoonacular.com/recipes/${recipeId}/information?${apiKey3}&includeNutrition=true`
-  //   )
-  // );
-
   const { data, isLoading } = useQuery("recipeInfo", () =>
     getRecipeInfoById(recipeId)
   );
@@ -140,7 +132,6 @@ const Container = styled.div`
 
       .order--button {
         cursor: pointer;
-
         border-radius: 6px;
         border: solid #195a00;
         width: 222px;
