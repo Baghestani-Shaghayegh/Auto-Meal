@@ -7,7 +7,7 @@ import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
 import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 import { apiKey3 } from "../IP";
 import axios from "axios";
-import getRecipeInfoById from "../Fetchers";
+import { getRecipeInfoById } from "../Fetchers";
 
 export default function RecipeDetails({ recipeId }) {
   const { data, isLoading } = useQuery("recipeInfo", () =>

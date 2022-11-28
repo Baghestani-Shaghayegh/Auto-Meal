@@ -1,17 +1,31 @@
 import axios from "axios";
-import { apiKey2 } from "./IP";
 
-async function getRecipeInfoById(recipeId) {
+import { ServeIP } from "./IP";
+
+export async function getRecipeInfoById(recipeId) {
   const { data } = await axios.get(
-    `http://automealbackend-env.eba-ikpeu3mz.ap-northeast-2.elasticbeanstalk.com/RecipeDB/detail_recipe?recipeId=${recipeId} `
+    `${ServeIP}/RecipeDB/detail_recipe?recipeId=${recipeId} `
+    // `http://automealbackend-env.eba-ikpeu3mz.ap-northeast-2.elasticbeanstalk.com/RecipeDB/detail_recipe?recipeId=${recipeId} `
   );
   return data;
 }
 
-export default getRecipeInfoById;
+// export async function getRecipeByIngredients(tags) {
+//   const formData = new FormData();
+//   const ingredientsArr = tags.map((tag) => {
+//     return tag.name;
+//   });
+//   const ingredients = ingredientsArr.toString();
+//   formData.append("includeIngredients", ingredients);
 
-// async function getRecipeQueryByKeyword(searchKeyword) {
-//   const { data } await axios.get(
-//     ``
-//   )
+//   const { data } = axios({
+//     method: "post",
+//     url: `${ServeIP}/RecipeDB/searchRecipes`,
+//     data: formData,
+//   }).then(function (res) {
+//     console.log(res);
+//     return res;
+//   });
+//   console.log(data);
+//   return data;
 // }

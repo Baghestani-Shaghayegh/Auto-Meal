@@ -81,3 +81,13 @@ body {
 .green-button:hover {
   font-weight: bold;
 }
+
+.cards--list {
+  display: flex;
+  max-width: 120vw;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 5%;
+  gap: 40px;
+  overflow-x: auto;
+}

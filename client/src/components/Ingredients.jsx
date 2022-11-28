@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import styled from "styled-components";
 import IngredientInfo from "./IngredientInfo";
 import AddToPlan from "./AddToPlan";
-import getRecipeInfoById from "../Fetchers";
+import { getRecipeInfoById } from "../Fetchers";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";

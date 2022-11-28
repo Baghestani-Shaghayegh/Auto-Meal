@@ -3,7 +3,7 @@ import RecipeDetails from "../components/RecipeDetailes";
 import Ingredients from "../components/Ingredients";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import getRecipeInfoById from "../Fetchers";
+import { getRecipeInfoById } from "../Fetchers";
 import Direction from "../components/Direction";
 import styled from "styled-components";
 
